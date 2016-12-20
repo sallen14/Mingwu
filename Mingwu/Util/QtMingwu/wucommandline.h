@@ -33,6 +33,14 @@ class wuCommandLine : public QObject
 public:
     explicit wuCommandLine(QObject *parent = 0);
     Q_INVOKABLE wuCommandLine(QString cmd);
+    //Function: execute stored command
+    Q_INVOKABLE void exe();
+    //Function: execute user entered command
+    Q_INVOKABLE void exe(QString cmd);
+    //Function: execute user entered command and return error if any
+    Q_INVOKABLE QString exec(QString cmd);
+    //Function: return errors from executed command
+    Q_INVOKABLE QString getErr(){ return _err;}
 signals:
 
 public slots:
