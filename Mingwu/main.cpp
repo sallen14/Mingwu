@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
     QScopedPointer<wuInterface> inter(new wuInterface);
     QScopedPointer<wuCommandLine> cmd(new wuCommandLine);
 
-    //wu_Interface i;
     QQmlApplicationEngine engine;
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
 
