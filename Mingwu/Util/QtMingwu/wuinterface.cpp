@@ -26,3 +26,21 @@ QString wuInterface::loadFromeFile(const QString &str)
     _file = str;
     return _content;
 }
+
+bool wuInterface::saveToFile(QString path, QString info)
+{
+    ofstream file;
+    file.open(path.toStdString().c_str());
+    file << info.toStdString();
+    file.close();
+    return false;
+}
+
+bool wuInterface::save(const QString &path)
+{
+    ofstream file;
+    file.open(path.toStdString().c_str());
+    file << _content.toStdString();
+    file.close();
+    return false;
+}
