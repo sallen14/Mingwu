@@ -3,7 +3,8 @@ QT += core qml quick gui
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    Util/QtMingwu/wuinterface.cpp
+    Util/QtMingwu/wuinterface.cpp \
+    Util/QtMingwu/wucommandline.cpp
 
 RESOURCES += qml.qrc
 
@@ -16,4 +17,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    Util/QtMingwu/wuinterface.h
+    Util/QtMingwu/wuinterface.h \
+    Util/QtMingwu/wucommandline.h

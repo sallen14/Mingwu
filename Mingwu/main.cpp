@@ -4,6 +4,7 @@
 #include <QQmlContext>
 
 #include <Util/QtMingwu/wuinterface.h>
+#include <Util/QtMingwu/wucommandline.h>
 
 
 int main(int argc, char *argv[])
@@ -14,6 +15,7 @@ int main(int argc, char *argv[])
     //Make C++ classes accessable to qml
     //QScopedPointer<Class> var(new Class);
     QScopedPointer<wuInterface> inter(new wuInterface);
+    QScopedPointer<wuCommandLine> cmd(new wuCommandLine);
 
     //wu_Interface i;
     QQmlApplicationEngine engine;
@@ -21,6 +23,7 @@ int main(int argc, char *argv[])
 
     //Set qml context properties
     engine.rootContext()->setContextProperty("inter", inter.data());
+    engine.rootContext()->setContextProperty("commandline", cmd.data());
 
 
 
