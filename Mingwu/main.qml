@@ -8,5 +8,23 @@ ApplicationWindow {
     height: 480
     title: qsTr("MingWu")
 
+Rectangle{
+    color:"red"
+    anchors.centerIn: parent
+    width: 200
+    height: 200
 
+    Text {
+        id: name
+        text: qsTr("Info")
+
+        anchors.centerIn: parent
+    }
+}
+Row{
+    Button{
+        text: qsTr("Load")
+        onClicked: name.text = inter.loadFromFile("main.qml")
+    }
+}
 }

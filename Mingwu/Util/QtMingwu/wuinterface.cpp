@@ -1,11 +1,13 @@
 #include "wuinterface.h"
 
+#include <string>
+#include <fstream>
+
 wuInterface::wuInterface(QObject *parent) : QObject(parent)
 {
-
 }
 
-QString wuInterface::loadFromeFile(const QString &str)
+QString wuInterface::loadFromFile(const QString str)
 {
     std::ifstream in(str.toStdString().c_str());
 
@@ -29,18 +31,19 @@ QString wuInterface::loadFromeFile(const QString &str)
 
 bool wuInterface::saveToFile(QString path, QString info)
 {
-    ofstream file;
+    std::ofstream file;
     file.open(path.toStdString().c_str());
     file << info.toStdString();
     file.close();
     return false;
 }
 
-bool wuInterface::save(const QString &path)
+bool wuInterface::save(const QString path)
 {
-    ofstream file;
+    std::ofstream file;
     file.open(path.toStdString().c_str());
     file << _content.toStdString();
     file.close();
     return false;
 }
+
